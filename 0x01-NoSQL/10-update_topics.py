@@ -5,4 +5,4 @@ import pymongo
 
 def update_topics(mongo_collection, name, topics):
     """Update certain topics in school documets"""
-    mongo_collection.update_one({"name": name}, {"$set": {"topics": topics}})
+    mongo_collection.update_many({"name": name}, {"$set": {"topics": topics}})
