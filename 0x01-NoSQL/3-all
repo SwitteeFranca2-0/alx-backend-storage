@@ -1,0 +1,3 @@
+// retrieves document present in mongodb collectiob
+
+db.school.find()

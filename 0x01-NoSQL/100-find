@@ -1,0 +1,3 @@
+// find a documnet based on start string
+
+db.school.find({"name": /^Holberton.*$/})

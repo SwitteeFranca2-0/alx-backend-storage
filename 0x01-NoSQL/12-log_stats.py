@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""function on log parsing"""
+
+from pymongo import MongoClient
+
+if __name__ == "__main__":
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    log_collection = client.logs.nginx
+
+    x = log_collection.count_documents({})
+    m_get = log_collection.count_documents({"method": "GET"})
+    m_post = log_collection.count_documents({"method": "POST"})
+    m_put = log_collection.count_documents({"method": "PU"})
+    m_patch = log_collection.count_documents({"method": "PATCH"})
+    m_delete = log_collection.count_documents({"method": "DELETE"})
+    get = log_collection.count_documents({"method": "GET", "path": "/status"})
+    print(f"{x} logs\nMethods:")
+    print(f"\tmethod GET: {m_get}\n\tmethod POST: {m_post}")
+    print(f"\tmethod PUT: {m_put}\n\tmethod PATCH: {m_patch}")
+    print(f"\tmethod DELETE: {m_delete}\n{get} status check")
