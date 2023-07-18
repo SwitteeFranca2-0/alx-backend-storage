@@ -20,13 +20,14 @@ if __name__ == "__main__":
             ips_data[log.get("ip")] = 1
         else:
             ips_data[log.get("ip")] += 1
-    print(f"{x} logs\nMethods:")
-    print(f"\tmethod GET: {m_get}\n\tmethod POST: {m_post}")
-    print(f"\tmethod PUT: {m_put}\n\tmethod PATCH: {m_patch}")
-    print(f"\tmethod DELETE: {m_delete}\n{get} status check\nIPs:")
+    print("{} logs\nMethods:".format(x))
+    print("\tmethod GET: {}\n\tmethod POST: {}".format(m_get, m_post))
+    print("\tmethod PUT: {}\n\tmethod PATCH: {}".format(m_put, m_patch))
+    print("\tmethod DELETE: {}\n{} status check\nIPs:".format(m_delete, get))
+
     for i in range(10):
         ip = max(ips_data.values())
         index = list(ips_data.values()).index(ip)
         address = list(ips_data.keys())[index]
-        print(f"\t{address}: {ip}")
+        print("\t{}: {}".format(address, ip))
         del ips_data[address]
