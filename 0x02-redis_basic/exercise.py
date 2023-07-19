@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 """Script that implemnts aacahche claas"""
 import redis
 import uuid
