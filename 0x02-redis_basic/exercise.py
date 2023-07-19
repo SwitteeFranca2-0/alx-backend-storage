@@ -3,7 +3,7 @@
 import redis
 import uuid
 from functools import wraps
-from typing import Any, Callable, Optional, Union
+from typing import Callable, Optional, Union
 
 
 def count_calls(method: Callable) -> Callable:
@@ -56,7 +56,7 @@ class Cache:
 
     @call_history
     @count_calls
-    def store(self, data: Union[str, int, float, bytes]) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         """store key in redis database"""
         key = str(uuid.uuid4())
         self._redis.set(key, data)
